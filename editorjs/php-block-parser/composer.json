@@ -1,0 +1,15 @@
+{
+    "name": "rodrigoaramburu/php-blockparser",
+    "autoload": {
+        "psr-4": {
+            "ParserBlock\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rodrigo Aramburu",
+            "email": "rodrigoaramburu@gmail.com"
+        }
+    ],
+    "require": {}
+}

@@ -1,0 +1,35 @@
+<?php
+
+declare(strict_types=1);
+
+require 'vendor/autoload.php';
+
+use Intervention\Image\ImageManagerStatic as Image;
+
+Image::configure(['driver' => 'gd']);
+
+// pelo sistema de arquivo
+$img = Image::make('images/castelo.jpg')
+    ->save('out/imagem1.jpg');
+
+// por url
+Image::make('https://www.botecodigital.dev.br/exemplos/intervention-image/castelo.jpg')
+    ->save('out/imagem2.jpg');
+        
+// por binary data
+$img = Image::make(file_get_contents('images/castelo.jpg'))
+        ->save('out/imagem3.jpg');
+
+// por gd resource
+$img = Image::make(imagecreatefromjpeg('images/castelo.jpg'))
+    ->save('out/imagem4.jpg');
+    
+// pelo objeto Laravel file upload
+//Image::make($request->file('imagem'))
+//        ->save(storage_path('app/public/imagem5.jpg'));
+
+
+//por encoded base64
+$encodeBase64 = "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";
+$img = Image::make($encodeBase64)
+    ->save('out/imagem6.jpg');
